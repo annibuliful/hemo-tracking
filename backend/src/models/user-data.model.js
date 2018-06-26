@@ -10,6 +10,17 @@ module.exports = function (app) {
       type: String,
       required: true,
     },
+    permissionTreatment: {
+      type: String,
+    },
+    doctor: {
+      name: {
+        type: String,
+      },
+      hospital: {
+        type: String,
+      },
+    },
     patientData: {
       name: {
         type: String,
