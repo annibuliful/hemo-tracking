@@ -2,7 +2,7 @@ version: '2'
 services: 
   backend:
     restart: always
-    container_name: hemo_frontend
+    container_name: hemo_backend
     build: './backend'
     volumes:
       - './backend:/app'
