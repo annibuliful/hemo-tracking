@@ -25,7 +25,7 @@
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
     "mocha": "mocha test/ --recursive --exit",
-    "dev":"nodemon src/"
+    "dev": "nodemon src/"
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.6",
@@ -39,7 +39,9 @@
     "@feathersjs/socketio": "^3.2.2",
     "compression": "^1.7.2",
     "cors": "^2.8.4",
+    "feathers-blob": "^2.0.1",
     "feathers-mongoose": "^6.1.2",
+    "fs-blob-store": "^5.2.1",
     "global": "^4.3.2",
     "helmet": "^3.12.1",
     "mongoose": "^5.1.6",
