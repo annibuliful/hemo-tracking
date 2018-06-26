@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "mongodb": "mongodb://mongodb:27017/hemo",
+  "authentication": {
+    "secret": "4d972e9a124b70e9d222ab53c4f6a48cc9048eb21fe87c8cb61a81b7bb3272d7c855851073b651cee078b2c8ce058613c48d84ece39f13354468595a40898ef56f802c95bea92ba6d9a8deefa14cf7edd59e0ed46136549fd5764792a9ee3fb9bfe6cbe92af5684fef23686ad35ad4c9685b92b5c654edc6f24ed4f78306519852e1b2e7d5b4a8724455a9dd5a96debc85d3a797ef933a1890b5347080f653166fcdae696fe5bdae51542404a7f3fa3708827b2cf53131873b6fb3de46c597974593bd5a28a734af12470beea8c2220a1ddb2aabfa834ce123cd32a99e32b5f151bb96587070f64b49cc094bfd7c258b0e5575812e99b1902deaf9b0d26e1dac",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
   }
 }
