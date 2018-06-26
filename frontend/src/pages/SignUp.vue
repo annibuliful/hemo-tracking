@@ -78,7 +78,7 @@
   .container {
     width: 40vw;
     margin-left: 30vw;
-    margin-top: 10vh;
+    padding-top: 10vh;
   }
 
   button {
@@ -86,6 +86,7 @@
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(241, 28, 21);
+    font-family: 'Maitree', serif;
     color: white;
     width: 40%;
     font-size: 20px;
