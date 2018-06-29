@@ -21,7 +21,7 @@
     </div>
     <div class="col-12">
       <button class="btn font-prompt" @click="signIn()">เข้าสู่ระบบ</button>
-      <br>
+      <p style="text-align:center; text-decoration: underline; cursor: pointer"><router-link to="/reg">สมัครสมาชิก</router-link></p>
       <p style="color:red; text-align:center; font-size: 18px;">{{err}}</p>
     </div>
   </div>
