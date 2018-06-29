@@ -19,12 +19,15 @@
         <input type="password" v-model="password">
       </div>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item no-space">
-        <p class="font-maitree">รหัสผ่าน:</p>
+    <div cass="row ignore-screen level">
+      <div class="col-3 ignore-screen level-item">
+        <p>เพศ:</p>
       </div>
-      <div class="col-3 ignore-screen level-item no-space">
-        <input type="password" v-model="password">
+      <div class="col-9 ignore-screen level-item input-control">
+        <select class="select" placeholder="Choose one" v-model="sex">
+          <option value="men">ชาย</option>
+          <option value="women">ผู้หญิง</option>
+        </select>
       </div>
     </div>
     <div class="row ignore-screen level">
@@ -41,7 +44,7 @@
         <p class="font-maitree">รหัสบัตรประชาชน</p>
       </div>
       <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="password">
+        <input type="text" v-model="id">
       </div>
     </div>
     <div class="row ignore-screen level">
@@ -49,7 +52,7 @@
         <p class="font-maitree">หมายเลขโทรศัพท์</p>
       </div>
       <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="password">
+        <input type="text" v-model="telePhoneNumber">
       </div>
     </div>
     <div class="row ignore-screen level">
@@ -57,7 +60,7 @@
         <p class="font-maitree">โรงพยาบาล</p>
       </div>
       <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="password">
+        <input type="text" v-model="hospitalName">
       </div>
     </div>
     <div class="row ignore-screen level">
@@ -65,7 +68,7 @@
         <p class="font-maitree">แพทย์ที่รักษา</p>
       </div>
       <div class="col-9 ignore-screen level-item">
-        <input type="password" v-model="password">
+        <input type="password" v-model="doctorName">
       </div>
     </div>
     <div class="row ignore-screen level">
@@ -106,7 +109,7 @@
         hospitalName: '',
         doctorName: '',
         birthDate: '',
-        sex:'',
+        sex: '',
         err: ''
       }
     },
