@@ -43,7 +43,7 @@
         <div class="col-5 ignore-screen level-item">
           <p class="font">ยาที่ใช้</p>
         </div>
-        <div class="col-7 ignore-screen level-item input-control">
+        <div class="col-7 ignore-screen input-control">
           <select class="select" placeholder="Choose one" v-model="medicineName">
             <option value="" disabled hidden>ชื่อยา</option>
             <option value="Alphanate">Alphanate</option>
