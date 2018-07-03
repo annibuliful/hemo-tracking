@@ -3,7 +3,7 @@
     <navbar/>
     <div class="container">
       <div class="col-12 ignore-screen logo">
-        <img src="https://i.imgur.com/UUWScH1.png">
+        <img src="https://i.imgur.com/KiDHzZp.png">
         <br>
         <p class="title" style="text-align: center">บันทึกอาการเลือดออก</p>
       </div>
@@ -199,7 +199,7 @@
 
   .container {
     width: 50vw;
-    margin-left: 20vw;
+    margin-left: 25vw;
     padding-top: 10vh;
   }
 

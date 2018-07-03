@@ -209,7 +209,7 @@
 
   .container {
     width: 50vw;
-    margin-left: 20vw;
+    margin-left: 25vw;
     padding-top: 10vh;
   }
 

@@ -12,15 +12,15 @@
       <div class="col-4">
         <card-component icon="https://i.imgur.com/bGdjEH7.png" title="คุณภาพชีวิต" link="/life" color="#f06292"/>
       </div>
-      <div class="col-4">
+      <div class="col-4 offset-2">
         <card-component icon="https://i.imgur.com/ZWUFPJW.png" title="ปฏิทิน" link="/" color="#7e57c2"/>
       </div>
       <div class="col-4">
         <card-component icon="https://i.imgur.com/hcaoriN.png" title="สิทธิขั้นตอน" link="/permission" color="#ffd54f"/>
       </div>
-      <div class="col-4">
+      <!-- <div class="col-4">
         <card-component icon="https://i.imgur.com/Z1GLgVI.png" title="รายงานสรุปผล" link="/" color="#42a5f5"/>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
