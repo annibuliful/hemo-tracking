@@ -11,6 +11,7 @@ module.exports = {
       : config.dev.cssSourceMap,
     extract: isProduction
   }),
+  hotReload: true,
   transformToRequire: {
     video: ['src', 'poster'],
     source: 'src',
