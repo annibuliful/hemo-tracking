@@ -64,7 +64,7 @@ module.exports = function (app) {
       type: Number,
       required: true,
     },
-    otherTakecare: {
+    otherTakeCare: {
       type: String,
     },
     effect: {
