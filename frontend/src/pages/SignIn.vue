@@ -5,7 +5,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">อีเมล์:</p>
+        <p class="font">อีเมล์:</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="username">
@@ -13,7 +13,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">รหัสผ่าน:</p>
+        <p class="font">รหัสผ่าน:</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="password" v-model="password">
@@ -54,7 +54,7 @@
 
 </script>
 <style scoped>
-  .font-maitree {
+  .font {
     font-weight: 600;
     font-size: 18px;
   }

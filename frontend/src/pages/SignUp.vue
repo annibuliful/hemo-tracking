@@ -5,7 +5,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">อีเมล์:</p>
+        <p class="font">อีเมล์:</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="username">
@@ -13,7 +13,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">รหัสผ่าน:</p>
+        <p class="font">รหัสผ่าน:</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="password" v-model="password">
@@ -21,7 +21,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">ชื่อ:</p>
+        <p class="font">ชื่อ:</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="name">
@@ -29,7 +29,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">เพศ:</p>
+        <p class="font">เพศ:</p>
       </div>
       <div class="col-9 ignore-screen level-item input-control">
         <select class="select" placeholder="Choose one" v-model="sex">
@@ -40,7 +40,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">วันเดือนปีเกิด</p>
+        <p class="font">วันเดือนปีเกิด</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="birthDate" placeholder="วันที่/เดือน/ปี : 20/06/2541">
@@ -48,7 +48,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">รหัสบัตรประชาชน</p>
+        <p class="font">รหัสบัตรประชาชน</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="id">
@@ -56,7 +56,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">หมายเลขโทรศัพท์</p>
+        <p class="font">หมายเลขโทรศัพท์</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="telephoneNumber">
@@ -64,7 +64,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">โรงพยาบาล</p>
+        <p class="font">โรงพยาบาล</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="hospitalName">
@@ -72,7 +72,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">แพทย์ที่รักษา</p>
+        <p class="font">แพทย์ที่รักษา</p>
       </div>
       <div class="col-9 ignore-screen level-item">
         <input type="text" v-model="doctorName">
@@ -80,7 +80,7 @@
     </div>
     <div class="row ignore-screen level">
       <div class="col-3 ignore-screen level-item">
-        <p class="font-maitree">สิทธิ์การรักษา</p>
+        <p class="font">สิทธิ์การรักษา</p>
       </div>
       <div class="col-9 ignore-screen level-item input-control">
         <select class="select" placeholder="Choose one" v-model="permissionTreatment">
@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn font-maitree" @click="signUp()">สมัครสมาชิก</button>
+      <button class="btn font" @click="signUp()">สมัครสมาชิก</button>
       <br>
       <p style="color:red; text-align:center; font-size: 18px;">{{err}}</p>
     </div>
@@ -165,7 +165,7 @@
 
 </script>
 <style scoped>
-  .font-maitree {
+  .font {
     font-weight: 600;
     font-size: 18px;
   }
