@@ -45,5 +45,11 @@
 .col-4{
     margin-top: 20px;
 }
+@media screen and (max-width: 800px) {
+    .container {
+      width: 90vw;
+      margin-left: 5vw;
+    }
+  }
 
 </style>
