@@ -60,7 +60,7 @@
           <p class="font">ระดับความเจ็บปวด</p>
         </div>
         <div class="col-7 ignore-screen level-item input-control">
-          <star-rating v-model="painLevel" :max-rating="10" :show-rating="false" :star-size="25"></star-rating>
+          <star-rating v-model="painLevel" :max-rating="10" :show-rating="false" :star-size="startSize"></star-rating>
         </div>
       </div>
       <div class="row ignore-screen level">
@@ -102,6 +102,12 @@
       Navbar,
       StarRating
     },
+    created(){
+      if(window.innerWidth > 300 && window.innerWidth < 600){
+        this.startSize = 15;
+      }
+      
+    },
     data: function () {
       return {
         date: '',
@@ -111,6 +117,7 @@
         reason: '',
         activity: '',
         painLevel: 0,
+        startSize: 30,
         image: '',
         remark: '',
         err: '',
