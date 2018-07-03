@@ -123,7 +123,7 @@
   import feathers, {
     injectionService
   } from '../plugins/feathers.js'
-
+  import moment from 'moment'
   import Navbar from '../components/navbar';
   export default {
     components: {
@@ -150,10 +150,13 @@
     },
     methods: {
       saveInformation: function () {
-        feathers.authenticate().then(() => {
+        feathers.authenticate().then((data) => {
+          const date = this.date.split('/')
+          const format = `${date[2] - 543}-${date[1]}-${date[0]}`
+          const isoFormat = moment(format).format()
           injectionService.create({
             jwt: data.accessToken,
-            injuryDate: this.date,
+            injuryDate: isoFormat,
             injuryTime: this.time,
             reasonInjection: this.reason,
             whoInjecting: this.personInjecting,
