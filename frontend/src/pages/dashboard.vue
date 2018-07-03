@@ -7,7 +7,7 @@
         <card-component icon="https://i.imgur.com/Lpr9rrw.png" title="บันทึกการฉีดยา" link="/injection" color="#66bb6a"/>
       </div>
       <div class="col-4">
-        <card-component icon="https://i.imgur.com/UUWScH1.png" title="บันทึกอาการเลือดออก" link="/" color="#ffa000"/>
+        <card-component icon="https://i.imgur.com/UUWScH1.png" title="บันทึกอาการเลือดออก" link="/injury" color="#ffa000"/>
       </div>
       <div class="col-4">
         <card-component icon="https://i.imgur.com/bGdjEH7.png" title="คุณภาพชีวิต" link="/" color="#f06292"/>

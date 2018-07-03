@@ -168,7 +168,6 @@
             effect: this.effect,
             remark: this.remark
           }).then((data) => {
-            console.log(data)
             this.complete = 'บันทึกการฉีดยาเรียบร้อย'
           }).catch(() => {
             this.err = 'เกิดปัญหาในการบันทึก'
