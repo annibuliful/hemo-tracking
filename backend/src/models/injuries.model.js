@@ -28,6 +28,9 @@ module.exports = function (app) {
     activity: {
       type: String,
     },
+    painDetail: {
+      type: String,
+    },
     painLevel: {
       type: Number,
       required: true,

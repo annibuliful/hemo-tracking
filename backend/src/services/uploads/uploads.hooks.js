@@ -1,5 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-
+const { fullImagePath } = require('./hook.function');
 module.exports = {
   before: {
     all: [authenticate('jwt')],
@@ -15,7 +15,9 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [
+      fullImagePath(),
+    ],
     update: [],
     patch: [],
     remove: [],
