@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import feathers from '../plugins/feathers.js';
 import SignUpPage from '../pages/SignUp.vue';
 import SignInPage from '../pages/SignIn.vue';
+import DashboardPage from '../pages/dashboard.vue';
+import InjectionPage from '../pages/injection.vue';
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
+const router = new Router({
+  routes: [{
       path: '/',
       name: 'signin',
       component: SignInPage
@@ -15,6 +17,30 @@ export default new Router({
       path: '/reg',
       name: 'signup',
       component: SignUpPage
+    },
+    {
+      path: '/dashboard',
+      name: 'dasboard',
+      component: DashboardPage
+    }, {
+      path: '/injection',
+      name: 'injection',
+      component: InjectionPage
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (to.name === 'signin' || to.name === 'signup') {
+    next(true);
+  } else {
+    feathers.authenticate().then((data) => {
+      next(true)
+    }).catch((err) => {
+      next('/')
+    })
+
+  }
+
+
+})
+export default router
