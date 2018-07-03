@@ -26,7 +26,7 @@ module.exports = function (app) {
         type: String,
       },
       birthDate: {
-        type: String,
+        type: Date,
       },
       telephoneNumber: {
         type: Number,
