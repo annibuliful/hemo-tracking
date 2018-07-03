@@ -67,6 +67,9 @@ module.exports = function (app) {
     otherTakecare: {
       type: String,
     },
+    effect: {
+      type: String,
+    },
     remark: {
       type: String,
     },
