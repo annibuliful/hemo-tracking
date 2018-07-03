@@ -17,6 +17,7 @@
     "@feathersjs/authentication-client": "^1.0.2",
     "@feathersjs/feathers": "^3.1.7",
     "@feathersjs/socketio-client": "^1.1.0",
+    "moment": "^2.22.2",
     "socket.io-client": "^2.1.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
