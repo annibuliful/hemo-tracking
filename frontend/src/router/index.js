@@ -7,6 +7,7 @@ import DashboardPage from '../pages/dashboard.vue';
 import InjectionPage from '../pages/injection.vue';
 import InjuryPage from '../pages/injury.vue';
 import PermissionPage from '../pages/permission.vue';
+import LifeQualityPage from '../pages/life-quality.vue';
 Vue.use(Router)
 
 const router = new Router({
@@ -38,6 +39,10 @@ const router = new Router({
       path: '/permission',
       name: 'permission',
       component: PermissionPage
+    },{
+      path: '/life',
+      name: 'life',
+      component: LifeQualityPage
     }
   ]
 })
