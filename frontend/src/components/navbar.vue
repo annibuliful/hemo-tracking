@@ -23,7 +23,7 @@
           <router-link to="injury">บันทึกอาการเลือดออก</router-link>
         </div>
         <div class="nav-item">
-          <a href="#">คุณภาพชีวิต</a>
+          <router-link to="life">คุณภาพชีวิต</router-link>
         </div>
         <div class="nav-item">
           <a href="#">ปฏิทิน</a>

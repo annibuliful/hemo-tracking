@@ -18,3 +18,4 @@ export const injectionService = client.service('injectings');
 export const uploadService = client.service('uploads');
 export const userInformation = client.service('user-data');
 export const injuryService = client.service('injuries');
+export const lifeQuality = client.service('life');
