@@ -11,8 +11,32 @@ module.exports = function (app) {
       required: true,
     },
     injuryDate: {
+      type: Date,
+      required: true,
+    },
+    injuryTime: {
       type: String,
       required: true,
+    },
+    injuryParts: {
+      type: String,
+      required: true,
+    },
+    reason: {
+      type: String,
+    },
+    activity: {
+      type: String,
+    },
+    painLevel: {
+      type: Number,
+      required: true,
+    },
+    injuryImage: {
+      type: Array,
+    },
+    remark: {
+      type: String,
     },
   }, {
     timestamps: true,
