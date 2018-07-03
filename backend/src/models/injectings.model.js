@@ -13,7 +13,7 @@ module.exports = function (app) {
       required: true,
     },
     injuryDate: {
-      type: String,
+      type: Date,
       required: true,
     },
     injuryTime: {
