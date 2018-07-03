@@ -38,9 +38,14 @@ const router = new Router({
 })
 router.beforeEach((to, from, next) => {
   if (to.name === 'signin' || to.name === 'signup') {
-    next(true);
+    feathers.authenticate().then(()=>{
+      next('/dashboard');    
+    }).catch((err) => {
+      next(true)
+    })
+    
   } else {
-    feathers.authenticate().then((data) => {
+    feathers.authenticate().then(() => {
       next(true)
     }).catch((err) => {
       next('/')
