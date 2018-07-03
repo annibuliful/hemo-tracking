@@ -10,7 +10,7 @@
         <card-component icon="https://i.imgur.com/UUWScH1.png" title="บันทึกอาการเลือดออก" link="/injury" color="#ffa000"/>
       </div>
       <div class="col-4">
-        <card-component icon="https://i.imgur.com/bGdjEH7.png" title="คุณภาพชีวิต" link="/" color="#f06292"/>
+        <card-component icon="https://i.imgur.com/bGdjEH7.png" title="คุณภาพชีวิต" link="/life" color="#f06292"/>
       </div>
       <div class="col-4">
         <card-component icon="https://i.imgur.com/ZWUFPJW.png" title="ปฏิทิน" link="/" color="#7e57c2"/>
