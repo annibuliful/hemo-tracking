@@ -21,7 +21,7 @@ module.exports = function (app) {
         type: String,
       },
     },
-    patientData: {
+    patientInformation: {
       name: {
         type: String,
       },
@@ -30,6 +30,9 @@ module.exports = function (app) {
       },
       telephoneNumber: {
         type: Number,
+      },
+      sex: {
+        type: String,
       },
     },
     parentData: {
