@@ -14,17 +14,43 @@ module.exports = function (app) {
       type: Date,
       required: true,
     },
-    injectionDate: {
-      type: Date,
+    injuryTime: {
+      type: String,
       required: true,
     },
-    injuryparts: {
+    reasonInjection: {
+      type: String,
+      required: true,
+    },
+    whoInjecting: {
+      type: String,
+      required: true,
+    },
+    medicine: {
+      name: {
+        type: String,
+        required: true,
+      },
+      volume: {
+        type: String,
+      },
+    },
+    otherMedicines: {
+      type: Array,
+    },
+    injuryParts: {
       type: Array,
       required: true,
     },
+    injectionNumber: {
+      type: Number,
+      required: true,
+    },
+    otherTakecare: {
+      type: String,
+    },
     remark: {
       type: String,
-      default: '',
     },
   }, {
     timestamps: true,
