@@ -12,8 +12,8 @@
 </script>
 
 <style>
-  .font-maitree{
-    font-family: 'Maitree', serif;
+  .font{
+    font-family: 'Trirong', serif;
   }
 
 </style>
