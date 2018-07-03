@@ -199,7 +199,7 @@
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(241, 28, 21);
-    font-family: 'Maitree', serif;
+    font-family: 'Trirong', serif;
     color: white;
     width: 40%;
     font-size: 20px;
