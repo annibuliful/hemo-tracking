@@ -21,7 +21,7 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
-    "test": "yarn run eslint && yarn run mocha",
+    "test": "yarn run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
     "mocha": "mocha test/ --recursive --exit",
@@ -44,6 +44,7 @@
     "fs-blob-store": "^5.2.1",
     "global": "^4.3.2",
     "helmet": "^3.12.1",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.6",
     "serve-favicon": "^2.5.0",
     "winston": "^3.0.0"

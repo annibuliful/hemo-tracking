@@ -4,7 +4,9 @@
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
-  const { Schema } = mongooseClient;
+  const {
+    Schema,
+  } = mongooseClient;
   const injectings = new Schema({
     userId: {
       type: String,
@@ -33,11 +35,27 @@ module.exports = function (app) {
       },
       volume: {
         type: String,
+        required: true,
+      },
+      number: {
+        type: Number,
+        required: true,
       },
     },
-    otherMedicines: {
-      type: Array,
-    },
+    otherMedicines: [{
+      name: {
+        type: String,
+        required: true,
+      },
+      volume: {
+        type: String,
+        required: true,
+      },
+      number: {
+        type: Number,
+        required: true,
+      },
+    }],
     injuryParts: {
       type: Array,
       required: true,
