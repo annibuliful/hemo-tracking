@@ -6,6 +6,7 @@ import SignInPage from '../pages/SignIn.vue';
 import DashboardPage from '../pages/dashboard.vue';
 import InjectionPage from '../pages/injection.vue';
 import InjuryPage from '../pages/injury.vue';
+import PermissionPage from '../pages/permission.vue';
 Vue.use(Router)
 
 const router = new Router({
@@ -33,6 +34,10 @@ const router = new Router({
       path: '/injury',
       name: 'injury',
       component: InjuryPage
+    },{
+      path: '/permission',
+      name: 'permission',
+      component: PermissionPage
     }
   ]
 })

@@ -20,7 +20,7 @@
           <router-link to="injection">บันทึกการฉีดยา</router-link>
         </div>
         <div class="nav-item">
-          <a href="#">บันทึกอาการเลือดออก</a>
+          <router-link to="injury">บันทึกอาการเลือดออก</router-link>
         </div>
         <div class="nav-item">
           <a href="#">คุณภาพชีวิต</a>

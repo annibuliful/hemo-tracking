@@ -3,9 +3,9 @@
     <navbar/>
     <div class="container">
       <div class="col-12 ignore-screen logo">
-        <img src="../assets/injection.svg">
+        <img src="https://i.imgur.com/UUWScH1.png">
         <br>
-        <p class="title" style="text-align: center">บันทึกการฉีดยา</p>
+        <p class="title" style="text-align: center">บันทึกอาการเลือดออก</p>
       </div>
       <div class="row ignore-screen level">
         <div class="col-5 ignore-screen level-item">
@@ -25,7 +25,23 @@
       </div>
       <div class="row ignore-screen level">
         <div class="col-5 ignore-screen level-item">
-          <p class="font">เหตุผลที่ใช้ยา:</p>
+          <p class="font">ส่วนที่เลือดออก:</p>
+        </div>
+        <div class="col-7 ignore-screen level-item input-control">
+          <input type="text" v-model="parts">
+        </div>
+      </div>
+      <div class="row ignore-screen level">
+        <div class="col-5 ignore-screen level-item">
+          <p class="font">อาการที่เลือดออก:</p>
+        </div>
+        <div class="col-7 ignore-screen level-item input-control">
+          <input type="text" v-model="pain">
+        </div>
+      </div>
+      <div class="row ignore-screen level">
+        <div class="col-5 ignore-screen level-item">
+          <p class="font">สาเหตุ:</p>
         </div>
         <div class="col-7 ignore-screen level-item input-control">
           <input type="text" v-model="reason">
@@ -33,72 +49,26 @@
       </div>
       <div class="row ignore-screen level">
         <div class="col-5 ignore-screen level-item">
-          <p class="font">ผู้ฉีด:</p>
+          <p class="font">กิจกรรมที่ทำอยู่</p>
         </div>
         <div class="col-7 ignore-screen level-item input-control">
-          <input type="text" v-model="personInjecting">
+          <input type="text" v-model="activity">
         </div>
       </div>
       <div class="row ignore-screen level">
         <div class="col-5 ignore-screen level-item">
-          <p class="font">ยาที่ใช้</p>
+          <p class="font">ระดับความเจ็บปวด</p>
         </div>
         <div class="col-7 ignore-screen level-item input-control">
-          <select class="select" placeholder="Choose one" v-model="medicineName">
-            <option value="" disabled hidden>ชื่อยา</option>
-            <option value="Alphanate">Alphanate</option>
-            <option value="Recombinate">Recombinate</option>
-            <option value="Haemoctin-m">Haemoctin-m</option>
-            <option value="Red cross">Red cross</option>
-            <option value="FEiBA">FEiBA</option>
-            <option value="NOVO">NOVO</option>
-          </select>
-          <select class="select" placeholder="Choose one" v-model="medicineVolume">
-            <option value="" disabled hidden>ขนาดยา</option>
-            <option value="Alphanate">250 IU</option>
-            <option value="Recombinate">500 IU</option>
-            <option value="Haemoctin-m">1000 IU</option>
-          </select>
-          <select class="select" placeholder="Choose one" v-model="medicineNumber">
-            <option value="" disabled hidden>จำนวน</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
+          <star-rating v-model="painLevel" :max-rating="10" :show-rating="false" :star-size="25"></star-rating>
         </div>
       </div>
       <div class="row ignore-screen level">
         <div class="col-5 ignore-screen level-item">
-          <p class="font">อาการและตำแหน่งเมื่อมีเลือดออก
-            <br>/สาเหตุ:</p>
+          <p class="font">รูป</p>
         </div>
         <div class="col-7 ignore-screen level-item input-control">
-          <input type="text" v-model="injuryPartAndCause">
-        </div>
-      </div>
-      <div class="row ignore-screen level">
-        <div class="col-5 ignore-screen level-item">
-          <p class="font">จำนวนครั้งที่แทงเส้น</p>
-        </div>
-        <div class="col-7 ignore-screen level-item input-control">
-          <input type="text" v-model="injectingNumber">
-        </div>
-      </div>
-      <div class="row ignore-screen level">
-        <div class="col-5 ignore-screen level-item">
-          <p class="font">การดูแลอื่นๆ</p>
-        </div>
-        <div class="col-7 ignore-screen level-item input-control">
-          <input type="text" v-model="otherTakeCare">
-        </div>
-      </div>
-      <div class="row ignore-screen level">
-        <div class="col-5 ignore-screen level-item">
-          <p class="font">การตอบสนองต่อการรักษา</p>
-        </div>
-        <div class="col-7 ignore-screen level-item input-control">
-          <input type="text" v-model="effect">
+          <input type="file" @change="imageURL($event)">
         </div>
       </div>
       <div class="row ignore-screen level">
@@ -121,54 +91,70 @@
 
 <script>
   import feathers, {
-    injectionService
+    injuryService,
+    uploadService
   } from '../plugins/feathers.js'
-
-  import Navbar from '../components/navbar';
+  import StarRating from 'vue-star-rating'
+  import Navbar from '../components/navbar'
+  import moment from 'moment'
   export default {
     components: {
-      Navbar
+      Navbar,
+      StarRating
     },
     data: function () {
       return {
         date: '',
         time: '',
+        parts: '',
+        pain: '',
         reason: '',
-        personInjecting: '',
-        medicineName: '',
-        medicineVolume: '',
-        medicineNumber: '',
-        otherMedicind: [],
-        injuryPartAndCause: '',
-        injectingNumber: '',
-        otherTakeCare: '',
-        effect: '',
+        activity: '',
+        painLevel: 0,
+        image: '',
         remark: '',
         err: '',
         complete: ''
       }
     },
     methods: {
+      imageURL: function () {
+        if (event.target.files && event.target.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = (event) => {
+            this.image = event.target.result;
+            feathers.authenticate().then(()=>{
+                uploadService.create({
+                    uri:this.image
+                }).then((data)=>{
+                    this.image = data.fullpath
+                })
+            })
+          }
+
+          reader.readAsDataURL(event.target.files[0]);
+        }
+      },
       saveInformation: function () {
-        feathers.authenticate().then(() => {
-          injectionService.create({
+        feathers.authenticate().then((data) => {
+          const date = this.date.split('/')
+          const format = `${date[2] - 543}-${date[1]}-${date[0]}`
+          const isoFormat = moment(format).format()
+          injuryService.create({
             jwt: data.accessToken,
-            injuryDate: this.date,
+            injuryDate: isoFormat,
             injuryTime: this.time,
-            reasonInjection: this.reason,
-            whoInjecting: this.personInjecting,
-            medicine: {
-              name: this.medicineName,
-              volume: this.medicineVolume,
-              number: this.medicineNumber
-            },
-            injuryPartsAndCause: this.injuryPartAndCause,
-            injectionNumber: this.injectingNumber,
-            otherTakeCare: this.otherTakeCare,
-            effect: this.effect,
-            remark: this.remark
+            injuryParts: this.parts,
+            reason: this.reason,
+            painDetail: this.pain,
+            activity: this.activity,
+            painLevel: this.painLevel,
+            remark: this.remark,
+            injuryImage: this.image
           }).then((data) => {
-            this.complete = 'บันทึกการฉีดยาเรียบร้อย'
+            console.log(data)
+            this.complete = 'บันทึกอาการบาดเจ็บเรียบร้อย'
           }).catch(() => {
             this.err = 'เกิดปัญหาในการบันทึก'
           })
