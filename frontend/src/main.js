@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import './assets/style.css'
+import vueEventCalendar from 'vue-event-calendar'
+Vue.use(vueEventCalendar, {locale: 'en',color: '#7e57c2'})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

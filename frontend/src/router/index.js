@@ -8,10 +8,11 @@ import InjectionPage from '../pages/injection.vue';
 import InjuryPage from '../pages/injury.vue';
 import PermissionPage from '../pages/permission.vue';
 import LifeQualityPage from '../pages/life-quality.vue';
+import CalendarPage from '../pages/calendar.vue';
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [{
       path: '/',
       name: 'signin',
@@ -24,7 +25,7 @@ const router = new Router({
     },
     {
       path: '/dashboard',
-      name: 'dasboard',
+      name: 'dashboard',
       component: DashboardPage
     }, 
     {
@@ -44,6 +45,10 @@ const router = new Router({
       path: '/life',
       name: 'life',
       component: LifeQualityPage
+    },{
+      path: '/calendar',
+      name: 'calendar',
+      component: CalendarPage
     }
   ]
 })

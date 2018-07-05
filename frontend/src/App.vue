@@ -10,10 +10,3 @@
   }
 
 </script>
-
-<style>
-  .font{
-    font-family: 'Trirong', serif;
-  }
-
-</style>

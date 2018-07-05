@@ -20,6 +20,7 @@
     "moment": "^2.22.2",
     "socket.io-client": "^2.1.1",
     "vue": "^2.5.2",
+    "vue-event-calendar": "^1.5.2",
     "vue-router": "^3.0.1",
     "vue-star-rating": "^1.6.0",
     "vuejs-datepicker": "^1.5.2"

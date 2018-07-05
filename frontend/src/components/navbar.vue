@@ -1,5 +1,5 @@
 <template>
-  <div class="header header-fixed unselectable header-animated">
+  <div class="header unselectable header-animated">
     <div class="header-brand">
       <div class="nav-item no-hover">
         <h6 class="title">
@@ -26,7 +26,7 @@
           <router-link to="life">คุณภาพชีวิต</router-link>
         </div>
         <div class="nav-item">
-          <a href="#">ปฏิทิน</a>
+          <router-link to="calendar" href="#">ปฏิทิน</router-link>
         </div>
         <div class="nav-item">
           <a href="#">รายงานสรุปผล</a>
