@@ -55,9 +55,9 @@
           </select>
           <select class="select" placeholder="Choose one" v-model="medicineVolume">
             <option value="" disabled hidden>ขนาดยา</option>
-            <option value="Alphanate">250 IU</option>
-            <option value="Recombinate">500 IU</option>
-            <option value="Haemoctin-m">1000 IU</option>
+            <option value="250">250 IU</option>
+            <option value="500">500 IU</option>
+            <option value="1000">1000 IU</option>
           </select>
           <select class="select" placeholder="Choose one" v-model="medicineNumber">
             <option value="" disabled hidden>จำนวน</option>
