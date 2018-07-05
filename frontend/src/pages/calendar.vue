@@ -52,7 +52,6 @@
           }
         })
       ]).then((data) => {
-        console.log(data)
         const injuryEvents = data[1].data.map((event) => {
           return {
             title: 'อาการบาดเจ็บ',
@@ -73,7 +72,6 @@
           }
         })
         this.events = injectionEvents.concat(injuryEvents);
-        console.log(this.events)
       })
     },
     data() {
