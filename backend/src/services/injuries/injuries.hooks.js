@@ -4,10 +4,12 @@ const { checkUserId } = require('./hook.functions');
 module.exports = {
   before: {
     all: [authenticate('jwt')],
-    find: [],
+    find: [
+      checkUserId(),
+    ],
     get: [],
     create: [
-      checkUserId(checkUserId),
+      checkUserId(),
     ],
     update: [],
     patch: [],
