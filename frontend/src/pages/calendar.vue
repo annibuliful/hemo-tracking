@@ -21,6 +21,14 @@
               <p class="detail">{{event.injuryParts}}</p>
               <p class="detail">{{event.painLevel}}</p>
             </div>
+
+            <div v-if="event.type === 'life'">
+              <p class="title">{{event.title}}
+                <span>{{event.date}}</span>
+              </p>
+              <p class="detail">{{event.injuryParts}}</p>
+              <p class="detail">{{event.painLevel}}</p>
+            </div>
           </div>
         </template>
       </vue-event-calendar>
@@ -58,7 +66,18 @@
           }
         })
       ]).then((data) => {
-        console.log(data)
+        const lifeQuality = data[2].data.map((event)=>{
+          console.log(event)
+          return {
+            title: 'คุณภาพชีวิต',
+            type: 'life',
+            date: moment(event.injuryDate).format('YYYY/MM/DD'),
+            movementLevel: event.movement,
+            painLevel: event.level,
+            stressedLevel: event.stressed,
+            takecareLevel: event.takecare
+          }
+        })
         const injuryEvents = data[1].data.map((event) => {
           return {
             title: 'อาการบาดเจ็บ',
@@ -78,7 +97,7 @@
             reasonInjection: `เหตุผล: ${event.reasonInjection}`,
           }
         })
-        this.events = injectionEvents.concat(injuryEvents);
+        this.events = injectionEvents.concat(injuryEvents,lifeQuality);
       })
     },
     data() {
