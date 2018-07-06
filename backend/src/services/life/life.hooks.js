@@ -1,10 +1,12 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
-const { checkUserId } = require('./hook.functions');
+const { checkUserId, findInjectingsByJwtToken } = require('./hook.functions');
 
 module.exports = {
   before: {
     all: [authenticate('jwt')],
-    find: [],
+    find: [
+      findInjectingsByJwtToken(),
+    ],
     get: [],
     create: [
       checkUserId(),
