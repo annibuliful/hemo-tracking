@@ -94,11 +94,11 @@
         <div class="col-7 ignore-screen level-item input-control">
           <select class="select" placeholder="Choose one" v-model="stressed">
             <option value="" disabled hidden>ระดับ</option>
-            <option value="1">ไม่มีอาการเจ็บปวดหรืออาการไม่สบายตัว</option>
-            <option value="2">มีอาการเจ็บปวดหรืออาการไม่สบายตัวเล็กน้อย</option>
-            <option value="3">มีอาการเจ็บปวดหรืออาการไม่สบายตัวปานกลาง</option>
-            <option value="4">มีอาการเจ็บปวดหรืออาการไม่สบายตัวอย่างมาก</option>
-            <option value="5">มีการเจ็บปวดหรืออาการไม่สบายตัวตลอดเวลา</option>
+            <option value="1">ไม่รู้สึกวิตกกังวลหรือซึมเศร้า</option>
+            <option value="2">รู้สึกวิตกกังวลหรือซึมเศร้าเล็กน้อย</option>
+            <option value="3">รู้สึกวิตกกังวลหรือซึมเศร้าปานกลาง</option>
+            <option value="4">รู้สึกวิตกกังวลหรือซึมเศร้าอย่างมาก</option>
+            <option value="5">รู้สึกวิตกกังวลหรือซึมเศร้าตลอดเวลา</option>
           </select>
         </div>
       </div>
