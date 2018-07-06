@@ -31,7 +31,8 @@
 <script>
   import feathers, {
     injectionService,
-    injuryService
+    injuryService,
+    lifeQualityService
   } from '../plugins/feathers.js';
   import Navbar from '../components/navbar';
   import moment from 'moment'
@@ -50,8 +51,14 @@
           query: {
             userId: localStorage.getItem('feathers-jwt')
           }
+        }),
+        lifeQualityService.find({
+          query: {
+            userId: localStorage.getItem('feathers-jwt')
+          }
         })
       ]).then((data) => {
+        console.log(data)
         const injuryEvents = data[1].data.map((event) => {
           return {
             title: 'อาการบาดเจ็บ',

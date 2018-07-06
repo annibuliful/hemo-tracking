@@ -27,7 +27,7 @@ const router = new Router({
       path: '/dashboard',
       name: 'dashboard',
       component: DashboardPage
-    }, 
+    },
     {
       path: '/injection',
       name: 'injection',
@@ -55,11 +55,11 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (to.name === 'signin' || to.name === 'signup') {
     feathers.authenticate().then(()=>{
-      next('/dashboard');    
+      next('/dashboard');
     }).catch((err) => {
       next(true)
     })
-    
+
   } else {
     feathers.authenticate().then(() => {
       next(true)

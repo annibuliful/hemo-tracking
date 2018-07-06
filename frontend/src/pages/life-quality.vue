@@ -114,7 +114,7 @@
 
 <script>
   import feathers, {
-    lifeQuality,
+    lifeQualityService,
   } from '../plugins/feathers.js'
   import StarRating from 'vue-star-rating'
   import Navbar from '../components/navbar'
@@ -143,7 +143,7 @@
           const date = this.date.split('/')
           const format = `${date[2] - 543}-${date[1]}-${date[0]}`
           const isoFormat = moment(format).format()
-          lifeQuality.create({
+          lifeQualityService.create({
             jwt: data.accessToken,
             date: isoFormat,
             time: this.time,
