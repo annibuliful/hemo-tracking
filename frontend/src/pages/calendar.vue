@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <navbar/>
-    <div class="container">
-      <vue-event-calendar :events="events" class="calendar">
-        <template slot-scope="props">
+<div>
+  <navbar/>
+  <div class="container">
+    <vue-event-calendar :events="events" class="calendar">
+      <template slot-scope="props">
           <div v-for="(event, index) in props.showEvents" class="event-item" :key="index">
             <div v-if="event.type === 'injection'">
               <p class="title">{{event.title}}
-                <span>{{event.date}}</span>
+                <span class="event-date">{{event.date}}</span>
               </p>
               <p class="detail">{{event.reasonInjection}}</p>
               <p class="detail">{{event.medicineName}}</p>
@@ -16,7 +16,7 @@
 
             <div v-if="event.type === 'injury'">
               <p class="title">{{event.title}}
-                <span>{{event.date}}</span>
+                <span class="event-date">{{event.date}}</span>
               </p>
               <p class="detail">{{event.injuryParts}}</p>
               <p class="detail">{{event.painLevel}}</p>
@@ -24,112 +24,118 @@
 
             <div v-if="event.type === 'life'">
               <p class="title">{{event.title}}
-                <span>{{event.date}}</span>
+                <span class="event-date">{{event.date}}</span>
               </p>
-              <p class="detail">{{event.injuryParts}}</p>
-              <p class="detail">{{event.painLevel}}</p>
+              <p class="life-detail"><span class="life-level">ระดับความเจ็บปวด:</span> <PainLevel :level="event.painLevel"/></p>
+              <p class="life-detail"><span class="life-level">ระดับความเจ็บปวด:</span> <PainLevel :level="event.painLevel"/></p>
             </div>
           </div>
         </template>
-      </vue-event-calendar>
-    </div>
+    </vue-event-calendar>
   </div>
+</div>
 </template>
 
 <script>
-  import feathers, {
-    injectionService,
-    injuryService,
-    lifeQualityService
-  } from '../plugins/feathers.js';
-  import Navbar from '../components/navbar';
-  import moment from 'moment'
-  export default {
-    components: {
-      Navbar
-    },
-    created() {
-      Promise.all([
-        injectionService.find({
-          query: {
-            userId: localStorage.getItem('feathers-jwt')
-          }
-        }),
-        injuryService.find({
-          query: {
-            userId: localStorage.getItem('feathers-jwt')
-          }
-        }),
-        lifeQualityService.find({
-          query: {
-            userId: localStorage.getItem('feathers-jwt')
-          }
-        })
-      ]).then((data) => {
-        const lifeQuality = data[2].data.map((event)=>{
-          console.log(event)
-          return {
-            title: 'คุณภาพชีวิต',
-            type: 'life',
-            date: moment(event.injuryDate).format('YYYY/MM/DD'),
-            movementLevel: event.movement,
-            painLevel: event.level,
-            stressedLevel: event.stressed,
-            takecareLevel: event.takecare
-          }
-        })
-        const injuryEvents = data[1].data.map((event) => {
-          return {
-            title: 'อาการบาดเจ็บ',
-            type: 'injury',
-            date: moment(event.injuryDate).format('YYYY/MM/DD'),
-            injuryParts: `เลือดออก: ${event.injuryParts}`,
-            painLevel: `ระดับความเจ็บ: ${event.painLevel}`
-          }
-        })
-        const injectionEvents = data[0].data.map((event) => {
-          return {
-            title: 'บันทึกการฉีดยา',
-            type: 'injection',
-            date: moment(event.injuryDate).format('YYYY/MM/DD'),
-            medicineName: `ชื่อยา: ${event.medicine.name}`,
-            medicineVolume: `ขนาด: ${event.medicine.volume} IU`,
-            reasonInjection: `เหตุผล: ${event.reasonInjection}`,
-          }
-        })
-        this.events = injectionEvents.concat(injuryEvents,lifeQuality);
+import feathers, {
+  injectionService,
+  injuryService,
+  lifeQualityService
+} from '../plugins/feathers.js';
+import Navbar from '../components/navbar';
+import PainLevel from '../components/life-level/pain';
+import moment from 'moment'
+export default {
+  components: {
+    Navbar,
+    PainLevel
+  },
+  created() {
+    Promise.all([
+      injectionService.find({
+        query: {
+          userId: localStorage.getItem('feathers-jwt')
+        }
+      }),
+      injuryService.find({
+        query: {
+          userId: localStorage.getItem('feathers-jwt')
+        }
+      }),
+      lifeQualityService.find({
+        query: {
+          userId: localStorage.getItem('feathers-jwt')
+        }
       })
-    },
-    data() {
-      return {
-        events: [],
-        today: moment().format('YYYY/MM/DD')
-      }
+    ]).then((data) => {
+      const lifeQuality = data[2].data.map((event) => {
+        console.log(event)
+        return {
+          title: 'คุณภาพชีวิต',
+          type: 'life',
+          date: moment(event.injuryDate).format('YYYY/MM/DD'),
+          movementLevel: event.movement,
+          painLevel: event.pain,
+          stressedLevel: event.stressed,
+          takecareLevel: event.takecare
+        }
+      })
+      const injuryEvents = data[1].data.map((event) => {
+        return {
+          title: 'อาการบาดเจ็บ',
+          type: 'injury',
+          date: moment(event.injuryDate).format('YYYY/MM/DD'),
+          injuryParts: `เลือดออก: ${event.injuryParts}`,
+          painLevel: `ระดับความเจ็บ: ${event.painLevel}`
+        }
+      })
+      const injectionEvents = data[0].data.map((event) => {
+        return {
+          title: 'บันทึกการฉีดยา',
+          type: 'injection',
+          date: moment(event.injuryDate).format('YYYY/MM/DD'),
+          medicineName: `ชื่อยา: ${event.medicine.name}`,
+          medicineVolume: `ขนาด: ${event.medicine.volume} IU`,
+          reasonInjection: `เหตุผล: ${event.reasonInjection}`,
+        }
+      })
+      this.events = injectionEvents.concat(injuryEvents, lifeQuality);
+    })
+  },
+  data() {
+    return {
+      events: [],
+      today: moment().format('YYYY/MM/DD')
     }
   }
-
+}
 </script>
 <style scoped>
-  .calendar {
-    padding-top: 30px;
-  }
+.life-detail{
+  padding-top: 20px;
+}
+.calendar {
+  padding-top: 30px;
+}
 
-  span {
-    text-align: right;
-    padding-left: 30px;
-  }
+.life-level{
+  font-weight: bold;
+}
+.event-date {
+  text-align: right;
+  padding-left: 70px;
+}
 
+.container {
+  width: 80vw;
+  margin-left: 10vw;
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 800px) {
   .container {
-    width: 80vw;
-    margin-left: 10vw;
-    padding-top: 10px;
+    width: 90vw;
+    margin-left: 5vw;
   }
-
-  @media screen and (max-width: 800px) {
-    .container {
-      width: 90vw;
-      margin-left: 5vw;
-    }
-  }
-
+}
 </style>
