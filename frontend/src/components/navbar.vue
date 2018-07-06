@@ -62,7 +62,7 @@ import feathers from '../plugins/feathers';
 </script>
 <style scoped>
   .active {
-    height: 40vh;
+    height: 400px;
   }
 
   img {
