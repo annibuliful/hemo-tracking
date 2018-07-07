@@ -10,56 +10,97 @@
             <div class="row">
                 <div class="row ignore-screen level">
                     <div class="col-3 ignore-screen level-item">
-                        <p>Email:</p>
+                        <p>อีเมลล์:</p>
                     </div>
                     <div class="col-9 ignore-screen level-item">
-                        <input type="email" value="john.doe@cirrus.io">
+                        <input type="email" v-model="email">
                     </div>
                 </div>
 
                 <div class="row ignore-screen level">
                     <div class="col-3 ignore-screen level-item">
-                        <p>Password:</p>
+                        <p>รหัสผ่าน:</p>
                     </div>
                     <div class="col-9 ignore-screen level-item">
-                        <input type="password" value="password">
+                        <input type="password" v-model="password">
                     </div>
                 </div>
 
                 <div class="row ignore-screen level">
                     <div class="col-3 ignore-screen level-item">
-                        <p>Name:</p>
+                        <p>ชื่อ:</p>
                     </div>
                     <div class="col-9 ignore-screen level-item">
-                        <input type="name" value="John Doe">
+                        <input type="name" v-model="name">
                     </div>
                 </div>
                 <div class="row ignore-screen level">
                     <div class="col-3 ignore-screen level-item">
-                        <p>Hospital:</p>
+                        <p>ชื่อโรงพยาบาล:</p>
                     </div>
                     <div class="col-9 ignore-screen level-item">
-                        <input type="name" value="John Doe">
+                        <input type="name" v-model="hospital">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row position">
-            <button type="button" class="submit">สมัครสมาชิก</button>
-            <button type="butotn" class="cancel">ยกเลิก</button>
+            <button type="button" class="submit" @click="signup()">สมัครสมาชิก</button>
+            <button type="butotn" class="cancel" @click="back()">ยกเลิก</button>
         </div>
+        <p style="color: red: font-size: 20px">{{err}}</p>
     </div>
 
 </template>
-<style>
+<script>
+import {
+  doctorInformationService,
+  userService
+} from '../plugins/feathers.js'
+  export default{
+    data:function(){
+      return{
+        email: '',
+        password: '',
+        name: '',
+        hospital: '',
+        err: ''
+      }
+    },
+    methods:{
+      signup: function(){
+        userService.create({
+          email: this.email,
+          password: this.password
+        }).then(({_id})=>{
+          doctorInformationService.create({
+            userId: _id,
+            name: this.name,
+            hospitalName: this.hospital
+          }).then((data)=>{
+            this.$router.push('/')
+          }).catch((err)=>{
+            this.err = 'เกิดปัญหาในการสมัครสมาชิก'
+          })
+        })
+      },
+      back: function(){
+        this.$router.push('/')
+      }
+    }
+  }
+</script>
+<style scoped>
     img {
         display: block;
         margin-left: auto;
         margin-right: auto;
         height: auto;
-        width: 20vw;
     }
 
+    input{
+      font-size: 18px;
+    }
     .position {
         display: flex;
         flex-flow: row;
@@ -99,5 +140,12 @@
     .cancel:hover {
         background-color: rgb(102, 101, 101);
         color: white;
+    }
+
+    @media screen and (max-width: 600px){
+      .container{
+        width: 90vw;
+        margin-left: 5vw;
+      }
     }
 </style>
