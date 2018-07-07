@@ -1,5 +1,5 @@
 version: '2'
-services: 
+services:
   backend:
     restart: always
     container_name: hemo_backend
@@ -10,7 +10,7 @@ services:
       - '3030:3030'
     depends_on:
       - mongodb
-  
+
   frontend:
     container_name: hemo_frontend
     restart: always
@@ -19,6 +19,15 @@ services:
       - './frontend:/app'
     ports:
       - '8080:8080'
+
+  doctorfrontend:
+    # container_name: hemo_doctor_frontend,
+    restart: always
+    build: './doctor-frontend'
+    volumes:
+      - './doctor-frontend:/app'
+    ports:
+      - '8081:8081'
 
   mongodb:
     container_name: hemo_mongodb
@@ -40,3 +49,4 @@ services:
     depends_on:
       - backend
       - frontend
+      - doctorfrontend
