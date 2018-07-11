@@ -59,6 +59,7 @@ router.beforeEach((to, from, next) => {
       if(data.length > 0 ){
         next(true);
       }else{
+        await feathers.logout();
         next('/');
       }
     }).catch((err) => {
