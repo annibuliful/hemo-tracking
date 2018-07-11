@@ -14,6 +14,9 @@ module.exports = function (app) {
       type: String,
     },
     doctor: {
+      id: {
+        type: String,
+      },
       name: {
         type: String,
       },
