@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import feathers from "../plugins/feathers.js";
+import feathers,{doctorInformationService} from "../plugins/feathers.js";
+import getUserId from '../plugins/getUserId.js';
 import SignUpPage from "../pages/Signup.vue";
 import SignInPage from "../pages/Signin.vue";
 import DashboardPage from "../pages/Dashboard.vue";
@@ -28,17 +29,39 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.name === 'signin' || to.name === 'signup') {
-    feathers.authenticate().then(()=>{
-      next('/dashboard');
+    feathers.authenticate().then(async({accessToken})=>{
+      const userId = getUserId(accessToken);
+      const {data} = await doctorInformationService.find({
+        query:{
+          userId:'22',
+          $limit: 1
+        }
+      })
+      if(data.length > 0 ){
+        next('/dashboard');
+      }else{
+        next('/');
+      }
     }).catch((err) => {
-      next(true)
+      next(true);
     })
 
   } else {
-    feathers.authenticate().then(() => {
-      next(true)
+    feathers.authenticate().then(async({accessToken}) => {
+      const userId = getUserId(accessToken);
+      const {data} = await doctorInformationService.find({
+        query:{
+          userId,
+          $limit: 1
+        }
+      })
+      if(data.length > 0 ){
+        next(true);
+      }else{
+        next('/');
+      }
     }).catch((err) => {
-      next('/')
+      next('/');
     })
 
   }
