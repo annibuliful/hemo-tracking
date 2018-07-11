@@ -33,13 +33,14 @@ router.beforeEach((to, from, next) => {
       const userId = getUserId(accessToken);
       const {data} = await doctorInformationService.find({
         query:{
-          userId:'22',
+          userId:userId,
           $limit: 1
         }
       })
       if(data.length > 0 ){
         next('/dashboard');
       }else{
+        await feathers.logout();
         next('/');
       }
     }).catch((err) => {
