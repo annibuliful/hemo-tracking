@@ -102,9 +102,10 @@
 </template>
 
 <script>
-  import {
+  import feathers,{
     userService,
-    userInformation
+    userInformation,
+    doctorService
   } from '../plugins/feathers.js'
   import moment from 'moment'
   export default {
@@ -121,9 +122,35 @@
         sex: '',
         err: '',
         permissionTreatment: '',
+        listDoctors: []
+      }
+    },
+    watch:{
+      doctorName: function(val){
+        if(this.listDoctors.length === 0){
+          doctorService
+          .find({})
+          .then(({data})=>{
+            console.log(data)
+            this.listDoctors = data
+            const regex = new RegExp(val, 'g')
+            const list = this.listDoctors
+              .filter((value)=> regex.test(value.name))
+              .map((value)=>{
+              return {id: value.userId,name: value.name,hospital: value.hospitalName }
+            })
+            console.log(list)
+          })
+
+        }else if(this.listDoctors.length > 0){
+
+        }
       }
     },
     methods: {
+      onSearchDoctor(event){
+        console.log()
+      },
       signUp() {
         const date = this.birthDate.split('/')
         const format = `${date[2] - 543}-${date[1]}-${date[0]}`
