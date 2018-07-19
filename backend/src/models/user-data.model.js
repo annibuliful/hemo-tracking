@@ -6,6 +6,11 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const userData = new Schema({
+    approved: {
+      type: String,
+      default: 'waiting',
+      enum: ['waiting', 'rejected', 'approved'],
+    },
     userId: {
       type: String,
       required: true,
