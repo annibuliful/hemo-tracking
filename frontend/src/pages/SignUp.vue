@@ -123,6 +123,7 @@ export default {
       err: '',
       permissionTreatment: '',
       listDoctors: [],
+      listFilterDoctors: []
     }
   },
   watch: {
@@ -135,7 +136,7 @@ export default {
           }) => {
             this.listDoctors = data
             const regex = new RegExp(val, 'g')
-            const list = this.listDoctors
+            this.listFilterDoctors = this.listDoctors
               .filter((value) => regex.test(value.name))
               .map((value) => {
                 return {
@@ -147,7 +148,15 @@ export default {
           })
 
       } else if (this.listDoctors.length > 0) {
-
+        this.listFilterDoctors = this.listDoctors
+          .filter((value) => regex.test(value.name))
+          .map((value) => {
+            return {
+              id: value.userId,
+              name: value.name,
+              hospital: value.hospitalName
+            }
+          })
       }
     }
   },
