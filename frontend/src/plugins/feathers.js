@@ -19,3 +19,4 @@ export const uploadService = client.service('uploads');
 export const userInformation = client.service('user-data');
 export const injuryService = client.service('injuries');
 export const lifeQualityService = client.service('life');
+export const doctorService = client.service('doctor-data');

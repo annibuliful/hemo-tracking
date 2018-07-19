@@ -1,89 +1,89 @@
 <template>
-  <div class="container">
-    <div class="col-12 ignore-screen logo">
-      <img src="../assets/logo.png">
+<div class="container">
+  <div class="col-12 ignore-screen logo">
+    <img src="../assets/logo.png">
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">อีเมล์:</p>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">อีเมล์:</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="username">
-      </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="username">
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">รหัสผ่าน:</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="password" v-model="password">
-      </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">รหัสผ่าน:</p>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">ชื่อ:</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="name">
-      </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="password" v-model="password">
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">เพศ:</p>
-      </div>
-      <div class="col-9 ignore-screen level-item input-control">
-        <select class="select" placeholder="Choose one" v-model="sex">
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">ชื่อ:</p>
+    </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="name">
+    </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">เพศ:</p>
+    </div>
+    <div class="col-9 ignore-screen level-item input-control">
+      <select class="select" placeholder="Choose one" v-model="sex">
           <option value="male">ชาย</option>
           <option value="female">หญิง</option>
         </select>
-      </div>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">วันเดือนปีเกิด</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="birthDate" placeholder="วันที่/เดือน/ปี : 20/06/2541">
-      </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">วันเดือนปีเกิด</p>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">รหัสบัตรประชาชน</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="id">
-      </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="birthDate" placeholder="วันที่/เดือน/ปี : 20/06/2541">
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">หมายเลขโทรศัพท์</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="telephoneNumber">
-      </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">รหัสบัตรประชาชน</p>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">โรงพยาบาล</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="hospitalName">
-      </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="id">
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">แพทย์ที่รักษา</p>
-      </div>
-      <div class="col-9 ignore-screen level-item">
-        <input type="text" v-model="doctorName">
-      </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">หมายเลขโทรศัพท์</p>
     </div>
-    <div class="row ignore-screen level">
-      <div class="col-3 ignore-screen level-item">
-        <p class="font">สิทธิ์การรักษา</p>
-      </div>
-      <div class="col-9 ignore-screen level-item input-control">
-        <select class="select" placeholder="Choose one" v-model="permissionTreatment">
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="telephoneNumber">
+    </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">โรงพยาบาล</p>
+    </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="hospitalName">
+    </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">แพทย์ที่รักษา</p>
+    </div>
+    <div class="col-9 ignore-screen level-item">
+      <input type="text" v-model="doctorName">
+    </div>
+  </div>
+  <div class="row ignore-screen level">
+    <div class="col-3 ignore-screen level-item">
+      <p class="font">สิทธิ์การรักษา</p>
+    </div>
+    <div class="col-9 ignore-screen level-item input-control">
+      <select class="select" placeholder="Choose one" v-model="permissionTreatment">
           <option value="servant">ข้าราชการ</option>
           <option value="social">ประกันสังคม</option>
           <option value="heal">ประกันสุขภาพถ้วนหน้า(30 บาท)</option>
@@ -91,156 +91,158 @@
           <option value="money">จ่ายเงินเอง</option>
           <option value="etc">อื่นๆ</option>
         </select>
-      </div>
-    </div>
-    <div class="col-12">
-      <button class="btn font" @click="signUp()">สมัครสมาชิก</button>
-      <br>
-      <p style="color:red; text-align:center; font-size: 18px;">{{err}}</p>
     </div>
   </div>
+  <div class="col-12">
+    <button class="btn font" @click="signUp()">สมัครสมาชิก</button>
+    <br>
+    <p style="color:red; text-align:center; font-size: 18px;">{{err}}</p>
+  </div>
+</div>
 </template>
 
 <script>
-  import feathers,{
-    userService,
-    userInformation,
-    doctorService
-  } from '../plugins/feathers.js'
-  import moment from 'moment'
-  export default {
-    data: function () {
-      return {
-        username: '',
-        password: '',
-        name: '',
-        id: '',
-        telephoneNumber: '',
-        hospitalName: '',
-        doctorName: '',
-        birthDate: '',
-        sex: '',
-        err: '',
-        permissionTreatment: '',
-        listDoctors: []
-      }
-    },
-    watch:{
-      doctorName: function(val){
-        if(this.listDoctors.length === 0){
-          doctorService
+import feathers, {
+  userService,
+  userInformation,
+  doctorService
+} from '../plugins/feathers.js'
+import moment from 'moment'
+export default {
+  data: function() {
+    return {
+      username: '',
+      password: '',
+      name: '',
+      id: '',
+      telephoneNumber: '',
+      hospitalName: '',
+      doctorName: '',
+      birthDate: '',
+      sex: '',
+      err: '',
+      permissionTreatment: '',
+      listDoctors: [],
+    }
+  },
+  watch: {
+    doctorName: function(val) {
+      if (this.listDoctors.length === 0) {
+        doctorService
           .find({})
-          .then(({data})=>{
-            console.log(data)
+          .then(({
+            data
+          }) => {
             this.listDoctors = data
             const regex = new RegExp(val, 'g')
             const list = this.listDoctors
-              .filter((value)=> regex.test(value.name))
-              .map((value)=>{
-              return {id: value.userId,name: value.name,hospital: value.hospitalName }
-            })
-            console.log(list)
+              .filter((value) => regex.test(value.name))
+              .map((value) => {
+                return {
+                  id: value.userId,
+                  name: value.name,
+                  hospital: value.hospitalName
+                }
+              })
           })
 
-        }else if(this.listDoctors.length > 0){
+      } else if (this.listDoctors.length > 0) {
 
-        }
       }
+    }
+  },
+  methods: {
+    onSearchDoctor(event) {
+      console.log()
     },
-    methods: {
-      onSearchDoctor(event){
-        console.log()
-      },
-      signUp() {
-        const date = this.birthDate.split('/')
-        const format = `${date[2] - 543}-${date[1]}-${date[0]}`
-        const isoFormat = moment(format).format()
-        userService.create({
-          email: this.username,
-          password: this.password
-        }).then((data) => {
-          this.err = ''
-          userInformation.create({
-            userId: data._id,
-            permissionTreatment: this.permissionTreatment,
-            doctor: {
-              name: this.doctorName,
-              hospital: this.hospitalName
-            },
-            patientIdCard: {
-              number: this.id
-            },
-            patientInformation: {
-              name: this.name,
-              birthDate: isoFormat,
-              telephoneNumber: this.telephoneNumber
-            }
+    signUp() {
+      const date = this.birthDate.split('/')
+      const format = `${date[2] - 543}-${date[1]}-${date[0]}`
+      const isoFormat = moment(format).format()
+      userService.create({
+        email: this.username,
+        password: this.password
+      }).then((data) => {
+        this.err = ''
+        userInformation.create({
+          userId: data._id,
+          permissionTreatment: this.permissionTreatment,
+          doctor: {
+            name: this.doctorName,
+            hospital: this.hospitalName
+          },
+          patientIdCard: {
+            number: this.id
+          },
+          patientInformation: {
+            name: this.name,
+            birthDate: isoFormat,
+            telephoneNumber: this.telephoneNumber
+          }
 
-          }).then((data) => {
-            this.$router.push('/')
-          }).catch((err) => {
-            console.log('info', err)
-            this.err = 'เกิดปัญหาในการ สมัครสมาชิก'
-          })
+        }).then((data) => {
+          this.$router.push('/')
         }).catch((err) => {
-          console.log('user', err)
+          console.log('info', err)
           this.err = 'เกิดปัญหาในการ สมัครสมาชิก'
         })
-      }
+      }).catch((err) => {
+        console.log('user', err)
+        this.err = 'เกิดปัญหาในการ สมัครสมาชิก'
+      })
     }
   }
-
+}
 </script>
 <style scoped>
-  .font {
-    font-weight: 600;
-    font-size: 18px;
-  }
+.font {
+  font-weight: 600;
+  font-size: 18px;
+}
 
-  .logo {
-    padding-bottom: 10%;
-  }
+.logo {
+  padding-bottom: 10%;
+}
 
-  .calendar {
-    width: 100vw;
-  }
+.calendar {
+  width: 100vw;
+}
 
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  input {
-    font-size: 18px;
-  }
+input {
+  font-size: 18px;
+}
 
+.container {
+  width: 50vw;
+  margin-left: 20vw;
+  padding-top: 10vh;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(241, 28, 21);
+  font-family: 'Trirong', serif;
+  color: white;
+  width: 40%;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: rgb(185, 27, 22);
+}
+
+@media screen and (max-width: 800px) {
   .container {
-    width: 50vw;
-    margin-left: 20vw;
-    padding-top: 10vh;
+    width: 90vw;
+    margin-left: 5vw;
   }
-
-  button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(241, 28, 21);
-    font-family: 'Trirong', serif;
-    color: white;
-    width: 40%;
-    font-size: 20px;
-  }
-
-  button:hover {
-    background-color: rgb(185, 27, 22);
-  }
-
-  @media screen and (max-width: 800px) {
-    .container {
-      width: 90vw;
-      margin-left: 5vw;
-    }
-  }
-
+}
 </style>
